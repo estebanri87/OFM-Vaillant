@@ -1,0 +1,22 @@
+{
+    "name": "OFM-Vaillant",
+    "version": "0.1.0",
+    "description": "Vaillant heat pumps and boilers on the KNX bus via the myVAILLANT cloud API (sensoCOMFORT VRC720 + VR921)",
+    "homepage": "https://openknx.de",
+    "authors": {
+        "name": "OpenKNX",
+        "email": "info@openknx.de",
+        "url": "https://openknx.de",
+        "maintainer": true
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/estebanri87/OFM-Vaillant"
+    },
+    "dependencies": {
+        "bblanchon/ArduinoJson": "^7.0.4"
+    },
+    "build": {
+        "srcFilter": "+<*> -<main.cpp>"
+    }
+}

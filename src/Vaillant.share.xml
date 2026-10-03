@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="../../Organization/knxprod-support/knx_project_14/knx-editor.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<KNX xmlns:op="http://github.com/OpenKNX/OpenKNXproducer" xmlns="http://knx.org/xml/project/14" CreatedBy="KNX MT" ToolVersion="5.1.255.16695">
+  <ManufacturerData>
+    <Manufacturer>
+      <ApplicationPrograms>
+        <ApplicationProgram>
+          <Static>
+            <ParameterTypes>
+              <ParameterType Id="%AID%_PT-VAIYesNo" Name="VAIYesNo">
+                <TypeRestriction Base="Value" SizeInBit="1">
+                  <Enumeration Text="Nein" Value="0" Id="%AID%_PT-VAIYesNo_EN-0" />
+                  <Enumeration Text="Ja" Value="1" Id="%AID%_PT-VAIYesNo_EN-1" />
+                </TypeRestriction>
+              </ParameterType>
+              <!-- Haupttyp (Kanalauswahl-Tabelle, mit Deaktiviert) -->
+              <ParameterType Id="%AID%_PT-VAIChannelType" Name="VAIChannelType">
+                <TypeRestriction Base="Value" SizeInBit="8" UIHint="DropDown">
+                  <Enumeration Text="Deaktiviert" Value="0" Id="%AID%_PT-VAIChannelType_EN-0" />
+                  <Enumeration Text="Heizzone" Value="1" Id="%AID%_PT-VAIChannelType_EN-1" />
+                  <Enumeration Text="Warmwasser" Value="2" Id="%AID%_PT-VAIChannelType_EN-2" />
+                  <Enumeration Text="Energiedaten" Value="3" Id="%AID%_PT-VAIChannelType_EN-3" />
+                </TypeRestriction>
+              </ParameterType>
+              <!-- TypeSelect (Kanal-Tab, ohne Deaktiviert) -->
+              <ParameterType Id="%AID%_PT-VAITypeSelect" Name="VAITypeSelect">
+                <TypeRestriction Base="Value" SizeInBit="8" UIHint="DropDown">
+                  <Enumeration Text="Heizzone" Value="1" Id="%AID%_PT-VAITypeSelect_EN-1" />
+                  <Enumeration Text="Warmwasser" Value="2" Id="%AID%_PT-VAITypeSelect_EN-2" />
+                  <Enumeration Text="Energiedaten" Value="3" Id="%AID%_PT-VAITypeSelect_EN-3" />
+                </TypeRestriction>
+              </ParameterType>
+              <ParameterType Id="%AID%_PT-VAIText64" Name="VAIText64">
+                <TypeText SizeInBit="512" />
+              </ParameterType>
+              <!-- Reihenfolge = Vaillant::kCountries (Keycloak-Realm vaillant-<land>-b2c) -->
+              <ParameterType Id="%AID%_PT-VAICountry" Name="VAICountry">
+                <TypeRestriction Base="Value" SizeInBit="8" UIHint="DropDown">
+                  <Enumeration Text="Albanien" Value="0" Id="%AID%_PT-VAICountry_EN-0" />
+                  <Enumeration Text="Österreich" Value="1" Id="%AID%_PT-VAICountry_EN-1" />
+                  <Enumeration Text="Belgien" Value="2" Id="%AID%_PT-VAICountry_EN-2" />
+                  <Enumeration Text="Bosnien und Herzegowina" Value="3" Id="%AID%_PT-VAICountry_EN-3" />
+                  <Enumeration Text="Bulgarien" Value="4" Id="%AID%_PT-VAICountry_EN-4" />
+                  <Enumeration Text="Kroatien" Value="5" Id="%AID%_PT-VAICountry_EN-5" />
+                  <Enumeration Text="Zypern" Value="6" Id="%AID%_PT-VAICountry_EN-6" />
+                  <Enumeration Text="Tschechien" Value="7" Id="%AID%_PT-VAICountry_EN-7" />
+                  <Enumeration Text="Dänemark" Value="8" Id="%AID%_PT-VAICountry_EN-8" />
+                  <Enumeration Text="Estland" Value="9" Id="%AID%_PT-VAICountry_EN-9" />
+                  <Enumeration Text="Finnland" Value="10" Id="%AID%_PT-VAICountry_EN-10" />
+                  <Enumeration Text="Frankreich" Value="11" Id="%AID%_PT-VAICountry_EN-11" />
+                  <Enumeration Text="Georgien" Value="12" Id="%AID%_PT-VAICountry_EN-12" />
+                  <Enumeration Text="Deutschland" Value="13" Id="%AID%_PT-VAICountry_EN-13" />
+                  <Enumeration Text="Griechenland" Value="14" Id="%AID%_PT-VAICountry_EN-14" />
+                  <Enumeration Text="Ungarn" Value="15" Id="%AID%_PT-VAICountry_EN-15" />
+                  <Enumeration Text="Irland" Value="16" Id="%AID%_PT-VAICountry_EN-16" />
+                  <Enumeration Text="Italien" Value="17" Id="%AID%_PT-VAICountry_EN-17" />
+                  <Enumeration Text="Kosovo" Value="18" Id="%AID%_PT-VAICountry_EN-18" />
+                  <Enumeration Text="Lettland" Value="19" Id="%AID%_PT-VAICountry_EN-19" />
+                  <Enumeration Text="Litauen" Value="20" Id="%AID%_PT-VAICountry_EN-20" />
+                  <Enumeration Text="Luxemburg" Value="21" Id="%AID%_PT-VAICountry_EN-21" />
+                  <Enumeration Text="Moldau" Value="22" Id="%AID%_PT-VAICountry_EN-22" />
+                  <Enumeration Text="Niederlande" Value="23" Id="%AID%_PT-VAICountry_EN-23" />
+                  <Enumeration Text="Neuseeland" Value="24" Id="%AID%_PT-VAICountry_EN-24" />
+                  <Enumeration Text="Nordmazedonien" Value="25" Id="%AID%_PT-VAICountry_EN-25" />
+                  <Enumeration Text="Norwegen" Value="26" Id="%AID%_PT-VAICountry_EN-26" />
+                  <Enumeration Text="Polen" Value="27" Id="%AID%_PT-VAICountry_EN-27" />
+                  <Enumeration Text="Portugal" Value="28" Id="%AID%_PT-VAICountry_EN-28" />
+                  <Enumeration Text="Rumänien" Value="29" Id="%AID%_PT-VAICountry_EN-29" />
+                  <Enumeration Text="Serbien" Value="30" Id="%AID%_PT-VAICountry_EN-30" />
+                  <Enumeration Text="Slowakei" Value="31" Id="%AID%_PT-VAICountry_EN-31" />
+                  <Enumeration Text="Slowenien" Value="32" Id="%AID%_PT-VAICountry_EN-32" />
+                  <Enumeration Text="Spanien" Value="33" Id="%AID%_PT-VAICountry_EN-33" />
+                  <Enumeration Text="Schweden" Value="34" Id="%AID%_PT-VAICountry_EN-34" />
+                  <Enumeration Text="Schweiz" Value="35" Id="%AID%_PT-VAICountry_EN-35" />
+                  <Enumeration Text="Türkei" Value="36" Id="%AID%_PT-VAICountry_EN-36" />
+                  <Enumeration Text="Ukraine" Value="37" Id="%AID%_PT-VAICountry_EN-37" />
+                  <Enumeration Text="Vereinigtes Königreich" Value="38" Id="%AID%_PT-VAICountry_EN-38" />
+                  <Enumeration Text="Usbekistan" Value="39" Id="%AID%_PT-VAICountry_EN-39" />
+                </TypeRestriction>
+              </ParameterType>
+              <ParameterType Id="%AID%_PT-VAIHome" Name="VAIHome">
+                <TypeRestriction Base="Value" SizeInBit="8" UIHint="DropDown">
+                  <Enumeration Text="1. Anlage im Konto" Value="0" Id="%AID%_PT-VAIHome_EN-0" />
+                  <Enumeration Text="2. Anlage im Konto" Value="1" Id="%AID%_PT-VAIHome_EN-1" />
+                  <Enumeration Text="3. Anlage im Konto" Value="2" Id="%AID%_PT-VAIHome_EN-2" />
+                  <Enumeration Text="4. Anlage im Konto" Value="3" Id="%AID%_PT-VAIHome_EN-3" />
+                </TypeRestriction>
+              </ParameterType>
+              <ParameterType Id="%AID%_PT-VAIPoll" Name="VAIPoll">
+                <TypeNumber SizeInBit="16" Type="unsignedInt" minInclusive="30" maxInclusive="3600" />
+              </ParameterType>
+              <ParameterType Id="%AID%_PT-VAIExtra" Name="VAIExtra">
+                <TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="5" maxInclusive="240" />
+              </ParameterType>
+              <ParameterType Id="%AID%_PT-VAIVetoHours" Name="VAIVetoHours">
+                <TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="1" maxInclusive="24" />
+              </ParameterType>
+              <ParameterType Id="%AID%_PT-VAIZone" Name="VAIZone">
+                <TypeRestriction Base="Value" SizeInBit="8" UIHint="DropDown">
+                  <Enumeration Text="Zone 1" Value="0" Id="%AID%_PT-VAIZone_EN-0" />
+                  <Enumeration Text="Zone 2" Value="1" Id="%AID%_PT-VAIZone_EN-1" />
+                  <Enumeration Text="Zone 3" Value="2" Id="%AID%_PT-VAIZone_EN-2" />
+                  <Enumeration Text="Zone 4" Value="3" Id="%AID%_PT-VAIZone_EN-3" />
+                  <Enumeration Text="Zone 5" Value="4" Id="%AID%_PT-VAIZone_EN-4" />
+                  <Enumeration Text="Zone 6" Value="5" Id="%AID%_PT-VAIZone_EN-5" />
+                  <Enumeration Text="Zone 7" Value="6" Id="%AID%_PT-VAIZone_EN-6" />
+                  <Enumeration Text="Zone 8" Value="7" Id="%AID%_PT-VAIZone_EN-7" />
+                  <Enumeration Text="Zone 9" Value="8" Id="%AID%_PT-VAIZone_EN-8" />
+                </TypeRestriction>
+              </ParameterType>
+              <ParameterType Id="%AID%_PT-VAIDhw" Name="VAIDhw">
+                <TypeRestriction Base="Value" SizeInBit="8" UIHint="DropDown">
+                  <Enumeration Text="1. Warmwasserspeicher" Value="0" Id="%AID%_PT-VAIDhw_EN-0" />
+                  <Enumeration Text="2. Warmwasserspeicher" Value="1" Id="%AID%_PT-VAIDhw_EN-1" />
+                </TypeRestriction>
+              </ParameterType>
+              <ParameterType Id="%AID%_PT-VAIEnergyDevice" Name="VAIEnergyDevice">
+                <TypeRestriction Base="Value" SizeInBit="8" UIHint="DropDown">
+                  <Enumeration Text="Wärmepumpe (Wärmeerzeuger)" Value="0" Id="%AID%_PT-VAIEnergyDevice_EN-0" />
+                  <Enumeration Text="Elektrische Zusatzheizung" Value="1" Id="%AID%_PT-VAIEnergyDevice_EN-1" />
+                </TypeRestriction>
+              </ParameterType>
+              <ParameterType Id="%AID%_PT-VAIEnergyMode" Name="VAIEnergyMode">
+                <TypeRestriction Base="Value" SizeInBit="8" UIHint="DropDown">
+                  <Enumeration Text="Heizen" Value="0" Id="%AID%_PT-VAIEnergyMode_EN-0" />
+                  <Enumeration Text="Warmwasser" Value="1" Id="%AID%_PT-VAIEnergyMode_EN-1" />
+                  <Enumeration Text="Kühlen" Value="2" Id="%AID%_PT-VAIEnergyMode_EN-2" />
+                  <Enumeration Text="Summe aller Betriebsarten" Value="3" Id="%AID%_PT-VAIEnergyMode_EN-3" />
+                </TypeRestriction>
+              </ParameterType>
+            </ParameterTypes>
+
+            <Parameters>
+              <!-- Modulweite Einstellungen. Offsets sind modulrelativ. -->
+              <Union SizeInBit="8">
+                <Memory CodeSegment="%MID%" Offset="0" BitOffset="0" />
+                <Parameter Id="%AID%_UP-%TT%00001" Name="VAIActive" ParameterType="%AID%_PT-VAIYesNo" Offset="0" BitOffset="0" Text="Modul aktiv" Value="0" />
+              </Union>
+              <Union SizeInBit="8">
+                <Memory CodeSegment="%MID%" Offset="1" BitOffset="0" />
+                <Parameter Id="%AID%_UP-%TT%00002" Name="VAICountry" ParameterType="%AID%_PT-VAICountry" Offset="0" BitOffset="0" Text="Land des myVAILLANT-Kontos" Value="13" />
+              </Union>
+              <Union SizeInBit="8">
+                <Memory CodeSegment="%MID%" Offset="2" BitOffset="0" />
+                <Parameter Id="%AID%_UP-%TT%00003" Name="VAIHomeIndex" ParameterType="%AID%_PT-VAIHome" Offset="0" BitOffset="0" Text="Anlage" Value="0" />
+              </Union>
+              <Union SizeInBit="8">
+                <Memory CodeSegment="%MID%" Offset="3" BitOffset="0" />
+                <Parameter Id="%AID%_UP-%TT%00004" Name="VAIExtraInterval" ParameterType="%AID%_PT-VAIExtra" Offset="0" BitOffset="0" Text="Energiedaten, Störungen und Leistung abfragen alle" SuffixText=" min" Value="15" />
+              </Union>
+              <Union SizeInBit="16">
+                <Memory CodeSegment="%MID%" Offset="4" BitOffset="0" />
+                <Parameter Id="%AID%_UP-%TT%00005" Name="VAIPollInterval" ParameterType="%AID%_PT-VAIPoll" Offset="0" BitOffset="0" Text="Anlagenzustand abfragen alle" SuffixText=" s" Value="60" />
+              </Union>
+              <Union SizeInBit="8">
+                <Memory CodeSegment="%MID%" Offset="6" BitOffset="0" />
+                <Parameter Id="%AID%_UP-%TT%00006" Name="VAIQuickVetoHours" ParameterType="%AID%_PT-VAIVetoHours" Offset="0" BitOffset="0" Text="Dauer einer Schnellabsenkung/-anhebung (Quick-Veto)" SuffixText=" h" Value="3" />
+              </Union>
+              <!-- Offset 7 bleibt frei. -->
+              <Union SizeInBit="512">
+                <Memory CodeSegment="%MID%" Offset="8" BitOffset="0" />
+                <Parameter Id="%AID%_UP-%TT%00007" Name="VAIUser" ParameterType="%AID%_PT-VAIText64" Offset="0" BitOffset="0" Text="E-Mail-Adresse" Value="" />
+              </Union>
+              <Union SizeInBit="512">
+                <Memory CodeSegment="%MID%" Offset="72" BitOffset="0" />
+                <Parameter Id="%AID%_UP-%TT%00008" Name="VAIPassword" ParameterType="%AID%_PT-VAIText64" Offset="0" BitOffset="0" Text="Passwort" Value="" />
+              </Union>
+              <!-- Offsets 136..143 bleiben frei (Reserve für spätere Parameter). -->
+            </Parameters>
+
+            <ParameterRefs>
+              <ParameterRef Id="%AID%_UP-%TT%00001_R-%TT%0000101" RefId="%AID%_UP-%TT%00001" />
+              <ParameterRef Id="%AID%_UP-%TT%00002_R-%TT%0000201" RefId="%AID%_UP-%TT%00002" />
+              <ParameterRef Id="%AID%_UP-%TT%00003_R-%TT%0000301" RefId="%AID%_UP-%TT%00003" />
+              <ParameterRef Id="%AID%_UP-%TT%00004_R-%TT%0000401" RefId="%AID%_UP-%TT%00004" />
+              <ParameterRef Id="%AID%_UP-%TT%00005_R-%TT%0000501" RefId="%AID%_UP-%TT%00005" />
+              <ParameterRef Id="%AID%_UP-%TT%00006_R-%TT%0000601" RefId="%AID%_UP-%TT%00006" />
+              <ParameterRef Id="%AID%_UP-%TT%00007_R-%TT%0000701" RefId="%AID%_UP-%TT%00007" />
+              <ParameterRef Id="%AID%_UP-%TT%00008_R-%TT%0000801" RefId="%AID%_UP-%TT%00008" />
+            </ParameterRefs>
+
+            <ComObjectTable>
+              <ComObject Id="%AID%_O-%TT%00000" Number="0" Name="VAIConnected" Text="Cloud-Verbindung" FunctionText="Status" ObjectSize="1 Bit" DatapointType="DPST-1-11" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" />
+              <ComObject Id="%AID%_O-%TT%00001" Number="1" Name="VAIDiag" Text="Diagnose" FunctionText="Meldungstext" ObjectSize="14 Bytes" DatapointType="DPST-16-1" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" />
+              <ComObject Id="%AID%_O-%TT%00002" Number="2" Name="VAIOnline" Text="Anlage online" FunctionText="Gateway mit Cloud verbunden" ObjectSize="1 Bit" DatapointType="DPST-1-11" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" />
+              <ComObject Id="%AID%_O-%TT%00003" Number="3" Name="VAIOutdoorTemp" Text="Außentemperatur" FunctionText="Ist" ObjectSize="2 Bytes" DatapointType="DPST-9-1" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" />
+              <ComObject Id="%AID%_O-%TT%00004" Number="4" Name="VAIOutdoorTempAvg" Text="Außentemperatur" FunctionText="24-h-Mittel" ObjectSize="2 Bytes" DatapointType="DPST-9-1" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" />
+              <ComObject Id="%AID%_O-%TT%00005" Number="5" Name="VAIPressure" Text="Anlagendruck" FunctionText="Ist (Pa)" ObjectSize="2 Bytes" DatapointType="DPST-9-6" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" />
+              <ComObject Id="%AID%_O-%TT%00006" Number="6" Name="VAIEnergyManager" Text="Energiemanager" FunctionText="Zustand" ObjectSize="14 Bytes" DatapointType="DPST-16-1" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" />
+              <ComObject Id="%AID%_O-%TT%00007" Number="7" Name="VAIFault" Text="Störung" FunctionText="Alarm" ObjectSize="1 Bit" DatapointType="DPST-1-5" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" />
+              <ComObject Id="%AID%_O-%TT%00008" Number="8" Name="VAIMaintenance" Text="Wartung" FunctionText="fällig" ObjectSize="1 Bit" DatapointType="DPST-1-5" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" />
+              <ComObject Id="%AID%_O-%TT%00009" Number="9" Name="VAIFaultText" Text="Fehlercode" FunctionText="Text" ObjectSize="14 Bytes" DatapointType="DPST-16-1" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" />
+              <ComObject Id="%AID%_O-%TT%00010" Number="10" Name="VAIAway" Text="Abwesenheit" FunctionText="Ein/Aus" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
+              <ComObject Id="%AID%_O-%TT%00011" Number="11" Name="VAIAwayStatus" Text="Abwesenheit" FunctionText="Status" ObjectSize="1 Bit" DatapointType="DPST-1-11" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" />
+              <ComObject Id="%AID%_O-%TT%00012" Number="12" Name="VAIPower" Text="Aktuelle Leistung" FunctionText="elektrisch (W)" ObjectSize="4 Bytes" DatapointType="DPST-14-56" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" />
+            </ComObjectTable>
+
+            <ComObjectRefs>
+              <ComObjectRef Id="%AID%_O-%TT%00000_R-%TT%0000001" RefId="%AID%_O-%TT%00000" />
+              <ComObjectRef Id="%AID%_O-%TT%00001_R-%TT%0000101" RefId="%AID%_O-%TT%00001" />
+              <ComObjectRef Id="%AID%_O-%TT%00002_R-%TT%0000201" RefId="%AID%_O-%TT%00002" />
+              <ComObjectRef Id="%AID%_O-%TT%00003_R-%TT%0000301" RefId="%AID%_O-%TT%00003" />
+              <ComObjectRef Id="%AID%_O-%TT%00004_R-%TT%0000401" RefId="%AID%_O-%TT%00004" />
+              <ComObjectRef Id="%AID%_O-%TT%00005_R-%TT%0000501" RefId="%AID%_O-%TT%00005" />
+              <ComObjectRef Id="%AID%_O-%TT%00006_R-%TT%0000601" RefId="%AID%_O-%TT%00006" />
+              <ComObjectRef Id="%AID%_O-%TT%00007_R-%TT%0000701" RefId="%AID%_O-%TT%00007" />
+              <ComObjectRef Id="%AID%_O-%TT%00008_R-%TT%0000801" RefId="%AID%_O-%TT%00008" />
+              <ComObjectRef Id="%AID%_O-%TT%00009_R-%TT%0000901" RefId="%AID%_O-%TT%00009" />
+              <ComObjectRef Id="%AID%_O-%TT%00010_R-%TT%0001001" RefId="%AID%_O-%TT%00010" />
+              <ComObjectRef Id="%AID%_O-%TT%00011_R-%TT%0001101" RefId="%AID%_O-%TT%00011" />
+              <ComObjectRef Id="%AID%_O-%TT%00012_R-%TT%0001201" RefId="%AID%_O-%TT%00012" />
+            </ComObjectRefs>
+          </Static>
+
+          <Dynamic>
+            <Channel Name="MainChannel%TT%" Text="Vaillant" Number="%PREFIX%" Id="%AID%_CH-%TT%" Icon="thermometer">
+              <ParameterBlock Id="%AID%_PB-nnn" Name="VAISettings" Text="Allgemein" Icon="cog-outline" HelpContext="VAI-Allgemein">
+                <ParameterSeparator Id="%AID%_PS-nnn" Text="Vaillant (myVAILLANT)" UIHint="Headline" />
+                <ParameterSeparator Id="%AID%_PS-nnn" Text="Version: %ModuleVersion%" />
+                <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
+                <ParameterRefRef RefId="%AID%_UP-%TT%00001_R-%TT%0000101" HelpContext="VAI-Allgemein" />
+                <choose ParamRefId="%AID%_UP-%TT%00001_R-%TT%0000101">
+                  <when test="=1">
+                    <ParameterSeparator Id="%AID%_PS-nnn" Text="Anbindung über die myVAILLANT-Cloud (sensoCOMFORT VRC720 mit Internet-Gateway VR921). Nur auf ESP32-Geräten verfügbar. Die Zugangsdaten sind die der myVAILLANT-App." UIHint="Information" />
+                    <ParameterSeparator Id="%AID%_PS-nnn" Text="Zugangsdaten" UIHint="Headline" />
+                    <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00007_R-%TT%0000701" HelpContext="VAI-Zugangsdaten" />
+                    <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00008_R-%TT%0000801" HelpContext="VAI-Zugangsdaten" />
+                    <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00002_R-%TT%0000201" HelpContext="VAI-Zugangsdaten" />
+                    <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00003_R-%TT%0000301" HelpContext="VAI-Zugangsdaten" />
+
+                    <ParameterSeparator Id="%AID%_PS-nnn" Text="Abfrage" UIHint="Headline" />
+                    <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00005_R-%TT%0000501" HelpContext="VAI-Abfrage" />
+                    <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00004_R-%TT%0000401" HelpContext="VAI-Abfrage" />
+                    <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00006_R-%TT%0000601" HelpContext="VAI-Abfrage" />
+
+                    <ParameterSeparator Id="%AID%_PS-nnn" Text="Anlage" UIHint="Headline" />
+                    <ComObjectRefRef RefId="%AID%_O-%TT%00002_R-%TT%0000201" />
+                    <ComObjectRefRef RefId="%AID%_O-%TT%00003_R-%TT%0000301" />
+                    <ComObjectRefRef RefId="%AID%_O-%TT%00004_R-%TT%0000401" />
+                    <ComObjectRefRef RefId="%AID%_O-%TT%00005_R-%TT%0000501" />
+                    <ComObjectRefRef RefId="%AID%_O-%TT%00006_R-%TT%0000601" />
+                    <ComObjectRefRef RefId="%AID%_O-%TT%00007_R-%TT%0000701" />
+                    <ComObjectRefRef RefId="%AID%_O-%TT%00008_R-%TT%0000801" />
+                    <ComObjectRefRef RefId="%AID%_O-%TT%00009_R-%TT%0000901" />
+                    <ComObjectRefRef RefId="%AID%_O-%TT%00010_R-%TT%0001001" />
+                    <ComObjectRefRef RefId="%AID%_O-%TT%00011_R-%TT%0001101" />
+                    <ComObjectRefRef RefId="%AID%_O-%TT%00012_R-%TT%0001201" />
+
+                    <ParameterSeparator Id="%AID%_PS-nnn" Text="Diagnose" UIHint="Headline" />
+                    <ComObjectRefRef RefId="%AID%_O-%TT%00000_R-%TT%0000001" />
+                    <ComObjectRefRef RefId="%AID%_O-%TT%00001_R-%TT%0000101" />
+                  </when>
+                </choose>
+              </ParameterBlock>
+
+              <choose ParamRefId="%AID%_UP-%TT%00001_R-%TT%0000101">
+                <when test="=1">
+                  <!-- Kanalauswahl: je Kanal eine einzeilige Tabelle (OpenKNX-Standard, Typ-Variante) -->
+                  <ParameterBlock Id="%AID%_PB-nnn" Name="VAIChannelSelect" Text="Kanalauswahl" Icon="format-list-bulleted-type" HelpContext="BASE-ChannelSelect">
+                    <ParameterBlock Id="%AID%_PB-nnn" Inline="true" Layout="Grid">
+                      <Rows>
+                        <Row Id="%AID%_PB-nnn_R-1" />
+                      </Rows>
+                      <Columns>
+                        <Column Id="%AID%_PB-nnn_C-1" Width="20%" />
+                        <Column Id="%AID%_PB-nnn_C-2" Width="30%" />
+                        <Column Id="%AID%_PB-nnn_C-3" Width="50%" />
+                      </Columns>
+                      <ParameterSeparator Id="%AID%_PS-nnn" Cell="1,1" UIHint="Headline" Text="Kanal" />
+                      <ParameterSeparator Id="%AID%_PS-nnn" Cell="1,2" UIHint="Headline" Text="Kanaltyp" />
+                      <ParameterSeparator Id="%AID%_PS-nnn" Cell="1,3" UIHint="Headline" Text="Beschreibung" />
+                    </ParameterBlock>
+                    <op:include href="Vaillant.templ.xml" xpath="//Dynamic/ChannelIndependentBlock/ParameterBlock[@Name='Settings']/*" type="template" prefix="VAI" IsInner="true" />
+                  </ParameterBlock>
+
+                  <!-- Kanal-Tabs (nur aktivierte Kanäle) -->
+                  <op:include href="Vaillant.templ.xml" xpath="//Dynamic/ChannelIndependentBlock/ParameterBlock[@Name='Channel']/*" type="template" prefix="VAI" IsInner="true" />
+                </when>
+              </choose>
+            </Channel>
+          </Dynamic>
+        </ApplicationProgram>
+      </ApplicationPrograms>
+      <Baggages>
+        <Baggage TargetPath="" Name="Help_de.zip" Id="%FILE-HELP-de%">
+          <FileInfo TimeInfo="%DATETIME%" />
+        </Baggage>
+      </Baggages>
+    </Manufacturer>
+  </ManufacturerData>
+</KNX>
