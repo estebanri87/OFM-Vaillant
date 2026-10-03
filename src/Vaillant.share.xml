@@ -233,7 +233,6 @@
                     <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00004_R-%TT%0000401" HelpContext="VAI-Abfrage" />
                     <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00006_R-%TT%0000601" HelpContext="VAI-Abfrage" />
 
-                    <ParameterSeparator Id="%AID%_PS-nnn" Text="Anlage" UIHint="Headline" />
                     <ComObjectRefRef RefId="%AID%_O-%TT%00002_R-%TT%0000201" />
                     <ComObjectRefRef RefId="%AID%_O-%TT%00003_R-%TT%0000301" />
                     <ComObjectRefRef RefId="%AID%_O-%TT%00004_R-%TT%0000401" />
@@ -246,7 +245,6 @@
                     <ComObjectRefRef RefId="%AID%_O-%TT%00011_R-%TT%0001101" />
                     <ComObjectRefRef RefId="%AID%_O-%TT%00012_R-%TT%0001201" />
 
-                    <ParameterSeparator Id="%AID%_PS-nnn" Text="Diagnose" UIHint="Headline" />
                     <ComObjectRefRef RefId="%AID%_O-%TT%00000_R-%TT%0000001" />
                     <ComObjectRefRef RefId="%AID%_O-%TT%00001_R-%TT%0000101" />
                   </when>
