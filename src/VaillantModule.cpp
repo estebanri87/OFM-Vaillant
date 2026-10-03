@@ -14,6 +14,16 @@ namespace
         const char *text = (const char *)data;
         return std::string(text, strnlen(text, size));
     }
+
+    // "Aktiv" in the module list of OpenKNX/Common. Without that list the module is on.
+    bool moduleEnabled()
+    {
+#ifdef ParamBASE_ModuleEnabled_VAI
+        return ParamBASE_ModuleEnabled_VAI;
+#else
+        return true;
+#endif
+    }
 } // namespace
 
 VaillantModule::VaillantModule()
@@ -53,7 +63,7 @@ uint8_t VaillantModule::energyMask()
 void VaillantModule::setup(bool configured)
 {
     VAIChannelOwnerModule::setup(configured); // creates the channels
-    if (!configured || !ParamVAI_VAIActive) return;
+    if (!configured || !moduleEnabled()) return;
 
     Cloud::Settings s;
     s.user = paramText(ParamVAI_VAIUser, 64);
@@ -64,6 +74,9 @@ void VaillantModule::setup(bool configured)
     s.extraMinutes = ParamVAI_VAIExtraInterval;
     s.quickVetoHours = ParamVAI_VAIQuickVetoHours;
     s.energyMask = energyMask();
+    s.wantOnline = ParamVAI_VAIUseOnline;
+    s.wantFaults = ParamVAI_VAIUseFault;
+    s.wantPower = ParamVAI_VAIUsePower;
     _cloud.begin(s);
 }
 
@@ -115,7 +128,7 @@ void VaillantModule::processInputKo(GroupObject &ko)
 
 void VaillantModule::printStatus()
 {
-    logInfoP("active: %s, cloud task: %s", ParamVAI_VAIActive ? "yes" : "no", _cloud.started() ? "running" : "stopped");
+    logInfoP("active: %s, cloud task: %s", moduleEnabled() ? "yes" : "no", _cloud.started() ? "running" : "stopped");
     if (!_cloud.started()) return;
     State s;
     if (!_cloud.snapshot(s, s.seq - 1)) return; // force a copy

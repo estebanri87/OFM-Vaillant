@@ -1,7 +1,11 @@
 ﻿### Allgemein
 
-Mit **Modul aktiv** wird die Anbindung eingeschaltet. Danach erscheinen die Zugangsdaten, die
-Abfrageeinstellungen, die Objekte der Anlage und die Seite **Kanalauswahl**.
+Das Modul ist standardmäßig aktiv. Wird es nicht gebraucht, lässt es sich unter
+**OpenKNX → Module** abschalten; dann blendet die ETS seine Seiten aus und die Firmware meldet
+sich nicht bei der Cloud an.
+
+Diese Seite enthält die Zugangsdaten, die Abfrageeinstellungen und die Objekte der Anlage. Die
+Kanäle werden auf der Seite **Kanalauswahl** angelegt.
 
 Werte, die die ganze Anlage betreffen — Außentemperatur, Anlagendruck, Störungen, Abwesenheit,
 aktuelle Leistung — liegen auf Objekten dieser Seite. Heizzonen, Warmwasser und Energiedaten

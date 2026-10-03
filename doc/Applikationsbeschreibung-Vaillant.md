@@ -34,8 +34,12 @@ funktioniert das Modul erst nach einem Update wieder.
 <!-- DOC -->
 ## Allgemein
 
-Mit **Modul aktiv** wird die Anbindung eingeschaltet. Danach erscheinen die Zugangsdaten, die
-Abfrageeinstellungen, die Objekte der Anlage und die Seite **Kanalauswahl**.
+Das Modul ist standardmäßig aktiv. Wird es nicht gebraucht, lässt es sich unter
+**OpenKNX → Module** abschalten; dann blendet die ETS seine Seiten aus und die Firmware meldet
+sich nicht bei der Cloud an.
+
+Diese Seite enthält die Zugangsdaten, die Abfrageeinstellungen und die Objekte der Anlage. Die
+Kanäle werden auf der Seite **Kanalauswahl** angelegt.
 
 Werte, die die ganze Anlage betreffen — Außentemperatur, Anlagendruck, Störungen, Abwesenheit,
 aktuelle Leistung — liegen auf Objekten dieser Seite. Heizzonen, Warmwasser und Energiedaten
@@ -86,22 +90,31 @@ Statusobjekte die Änderung zeigen.
 
 <!-- DOCEND -->
 
-## Objekte der Anlage
+<!-- DOC -->
+## Objekte
+
+Jedes Objekt der Anlage lässt sich einzeln zuschalten. Nicht benötigte Objekte abwählen hält
+die Objektliste kurz. Für „Anlage online", „Störung, Wartung und Fehlercode" und „Aktuelle
+Leistung" entfällt dann auch die zugehörige Cloud-Abfrage.
+
+Anlage:
 
 * **Anlage online**: das Internet-Gateway ist mit der Cloud verbunden
-* **Außentemperatur Ist / 24-h-Mittel** (DPT 9.001)
+* **Außentemperatur** und **Außentemperatur 24-h-Mittel** (DPT 9.001)
 * **Anlagendruck** in Pa (DPT 9.006; 1 bar = 100000 Pa)
-* **Energiemanager Zustand**: Text der Anlage, z. B. „HEATING", „STANDBY"
+* **Energiemanager-Zustand**: Text der Anlage, z. B. „HEATING", „STANDBY"
 * **Störung**, **Wartung** (DPT 1.005) und **Fehlercode** als Text
-* **Abwesenheit Ein/Aus** und **Status**: schaltet den Abwesenheitsmodus der App für ein Jahr
-  bzw. beendet ihn
+* **Abwesenheit** schalten und **Status Abwesenheit**: schaltet den Abwesenheitsmodus der App
+  für ein Jahr ein bzw. beendet ihn
 * **Aktuelle Leistung** (DPT 14.056), nur bei Anlagen, die das melden
 
-## Diagnose
+Diagnose:
 
 * **Cloud-Verbindung**: 1 = angemeldet und die letzte Abfrage war erfolgreich
-* **Diagnose**: kurzer Text, z. B. „verbunden", „Anmeldung...", „Login Fehler",
+* **Diagnose-Meldungstext**: kurzer Text, z. B. „verbunden", „Anmeldung...", „Login Fehler",
   „Netzwerkfehler", „Befehl Fehler"
+
+<!-- DOCEND -->
 
 Auf der Konsole zeigt `vai` den Zustand, `vai poll` fragt sofort ab, `vai login` verwirft das
 gespeicherte Token und meldet neu an, `vai raw on` protokolliert jede Anfrage.

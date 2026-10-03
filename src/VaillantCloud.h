@@ -28,6 +28,10 @@ namespace Vaillant
             uint8_t extraMinutes = 15; // energy, faults, power, connection state
             float quickVetoHours = 3;
             uint8_t energyMask = 0; // bit (device * EMODE_COUNT + mode) per wanted figure
+            // Only fetch what a used group object needs.
+            bool wantOnline = true;
+            bool wantFaults = true;
+            bool wantPower = true;
         };
 
         enum CommandType : uint8_t

@@ -132,10 +132,7 @@
 
             <Parameters>
               <!-- Modulweite Einstellungen. Offsets sind modulrelativ. -->
-              <Union SizeInBit="8">
-                <Memory CodeSegment="%MID%" Offset="0" BitOffset="0" />
-                <Parameter Id="%AID%_UP-%TT%00001" Name="VAIActive" ParameterType="%AID%_PT-VAIYesNo" Offset="0" BitOffset="0" Text="Modul aktiv" Value="0" />
-              </Union>
+              <!-- Offset 0, Bit 0: früher "Modul aktiv", jetzt Modulliste in OpenKNX/Common. Frei lassen. -->
               <Union SizeInBit="8">
                 <Memory CodeSegment="%MID%" Offset="1" BitOffset="0" />
                 <Parameter Id="%AID%_UP-%TT%00002" Name="VAICountry" ParameterType="%AID%_PT-VAICountry" Offset="0" BitOffset="0" Text="Land des myVAILLANT-Kontos" Value="13" />
@@ -156,7 +153,18 @@
                 <Memory CodeSegment="%MID%" Offset="6" BitOffset="0" />
                 <Parameter Id="%AID%_UP-%TT%00006" Name="VAIQuickVetoHours" ParameterType="%AID%_PT-VAIVetoHours" Offset="0" BitOffset="0" Text="Dauer einer Schnellabsenkung/-anhebung (Quick-Veto)" SuffixText=" h" Value="3" />
               </Union>
-              <!-- Offset 7 bleibt frei. -->
+              <!-- Welche Modul-Objekte verwendet werden (Offset 7 und 136). -->
+              <Union SizeInBit="8">
+                <Memory CodeSegment="%MID%" Offset="7" BitOffset="0" />
+                <Parameter Id="%AID%_UP-%TT%00010" Name="VAIUseOnline" ParameterType="%AID%_PT-CheckBox" Offset="0" BitOffset="0" Text="Anlage online" Value="1" />
+                <Parameter Id="%AID%_UP-%TT%00011" Name="VAIUseOutdoor" ParameterType="%AID%_PT-CheckBox" Offset="0" BitOffset="1" Text="Außentemperatur" Value="1" />
+                <Parameter Id="%AID%_UP-%TT%00012" Name="VAIUseOutdoorAvg" ParameterType="%AID%_PT-CheckBox" Offset="0" BitOffset="2" Text="Außentemperatur 24-h-Mittel" Value="1" />
+                <Parameter Id="%AID%_UP-%TT%00013" Name="VAIUsePressure" ParameterType="%AID%_PT-CheckBox" Offset="0" BitOffset="3" Text="Anlagendruck" Value="1" />
+                <Parameter Id="%AID%_UP-%TT%00014" Name="VAIUseEnergyManager" ParameterType="%AID%_PT-CheckBox" Offset="0" BitOffset="4" Text="Energiemanager-Zustand" Value="1" />
+                <Parameter Id="%AID%_UP-%TT%00015" Name="VAIUseFault" ParameterType="%AID%_PT-CheckBox" Offset="0" BitOffset="5" Text="Störung, Wartung und Fehlercode" Value="1" />
+                <Parameter Id="%AID%_UP-%TT%00016" Name="VAIUseAway" ParameterType="%AID%_PT-CheckBox" Offset="0" BitOffset="6" Text="Abwesenheit (schalten und Status)" Value="1" />
+                <Parameter Id="%AID%_UP-%TT%00017" Name="VAIUsePower" ParameterType="%AID%_PT-CheckBox" Offset="0" BitOffset="7" Text="Aktuelle Leistung" Value="1" />
+              </Union>
               <Union SizeInBit="512">
                 <Memory CodeSegment="%MID%" Offset="8" BitOffset="0" />
                 <Parameter Id="%AID%_UP-%TT%00007" Name="VAIUser" ParameterType="%AID%_PT-VAIText64" Offset="0" BitOffset="0" Text="E-Mail-Adresse" Value="" />
@@ -165,11 +173,15 @@
                 <Memory CodeSegment="%MID%" Offset="72" BitOffset="0" />
                 <Parameter Id="%AID%_UP-%TT%00008" Name="VAIPassword" ParameterType="%AID%_PT-VAIText64" Offset="0" BitOffset="0" Text="Passwort" Value="" />
               </Union>
-              <!-- Offsets 136..143 bleiben frei (Reserve für spätere Parameter). -->
+              <Union SizeInBit="8">
+                <Memory CodeSegment="%MID%" Offset="136" BitOffset="0" />
+                <Parameter Id="%AID%_UP-%TT%00018" Name="VAIUseConnected" ParameterType="%AID%_PT-CheckBox" Offset="0" BitOffset="0" Text="Cloud-Verbindung" Value="1" />
+                <Parameter Id="%AID%_UP-%TT%00019" Name="VAIUseDiag" ParameterType="%AID%_PT-CheckBox" Offset="0" BitOffset="1" Text="Diagnose-Meldungstext" Value="1" />
+              </Union>
+              <!-- Offsets 137..143 bleiben frei (Reserve für spätere Parameter). -->
             </Parameters>
 
             <ParameterRefs>
-              <ParameterRef Id="%AID%_UP-%TT%00001_R-%TT%0000101" RefId="%AID%_UP-%TT%00001" />
               <ParameterRef Id="%AID%_UP-%TT%00002_R-%TT%0000201" RefId="%AID%_UP-%TT%00002" />
               <ParameterRef Id="%AID%_UP-%TT%00003_R-%TT%0000301" RefId="%AID%_UP-%TT%00003" />
               <ParameterRef Id="%AID%_UP-%TT%00004_R-%TT%0000401" RefId="%AID%_UP-%TT%00004" />
@@ -177,6 +189,16 @@
               <ParameterRef Id="%AID%_UP-%TT%00006_R-%TT%0000601" RefId="%AID%_UP-%TT%00006" />
               <ParameterRef Id="%AID%_UP-%TT%00007_R-%TT%0000701" RefId="%AID%_UP-%TT%00007" />
               <ParameterRef Id="%AID%_UP-%TT%00008_R-%TT%0000801" RefId="%AID%_UP-%TT%00008" />
+              <ParameterRef Id="%AID%_UP-%TT%00010_R-%TT%0001001" RefId="%AID%_UP-%TT%00010" />
+              <ParameterRef Id="%AID%_UP-%TT%00011_R-%TT%0001101" RefId="%AID%_UP-%TT%00011" />
+              <ParameterRef Id="%AID%_UP-%TT%00012_R-%TT%0001201" RefId="%AID%_UP-%TT%00012" />
+              <ParameterRef Id="%AID%_UP-%TT%00013_R-%TT%0001301" RefId="%AID%_UP-%TT%00013" />
+              <ParameterRef Id="%AID%_UP-%TT%00014_R-%TT%0001401" RefId="%AID%_UP-%TT%00014" />
+              <ParameterRef Id="%AID%_UP-%TT%00015_R-%TT%0001501" RefId="%AID%_UP-%TT%00015" />
+              <ParameterRef Id="%AID%_UP-%TT%00016_R-%TT%0001601" RefId="%AID%_UP-%TT%00016" />
+              <ParameterRef Id="%AID%_UP-%TT%00017_R-%TT%0001701" RefId="%AID%_UP-%TT%00017" />
+              <ParameterRef Id="%AID%_UP-%TT%00018_R-%TT%0001801" RefId="%AID%_UP-%TT%00018" />
+              <ParameterRef Id="%AID%_UP-%TT%00019_R-%TT%0001901" RefId="%AID%_UP-%TT%00019" />
             </ParameterRefs>
 
             <ComObjectTable>
@@ -218,63 +240,106 @@
                 <ParameterSeparator Id="%AID%_PS-nnn" Text="Vaillant (myVAILLANT)" UIHint="Headline" />
                 <ParameterSeparator Id="%AID%_PS-nnn" Text="Version: %ModuleVersion%" />
                 <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
-                <ParameterRefRef RefId="%AID%_UP-%TT%00001_R-%TT%0000101" HelpContext="VAI-Allgemein" />
-                <choose ParamRefId="%AID%_UP-%TT%00001_R-%TT%0000101">
+                <ParameterSeparator Id="%AID%_PS-nnn" Text="Anbindung über die myVAILLANT-Cloud (sensoCOMFORT VRC720 mit Internet-Gateway VR921). Nur auf ESP32-Geräten verfügbar. Die Zugangsdaten sind die der myVAILLANT-App." UIHint="Information" />
+                <ParameterSeparator Id="%AID%_PS-nnn" Text="Zugangsdaten" UIHint="Headline" />
+                <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00007_R-%TT%0000701" HelpContext="VAI-Zugangsdaten" />
+                <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00008_R-%TT%0000801" HelpContext="VAI-Zugangsdaten" />
+                <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00002_R-%TT%0000201" HelpContext="VAI-Zugangsdaten" />
+                <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00003_R-%TT%0000301" HelpContext="VAI-Zugangsdaten" />
+
+                <ParameterSeparator Id="%AID%_PS-nnn" Text="Abfrage" UIHint="Headline" />
+                <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00005_R-%TT%0000501" HelpContext="VAI-Abfrage" />
+                <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00004_R-%TT%0000401" HelpContext="VAI-Abfrage" />
+                <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00006_R-%TT%0000601" HelpContext="VAI-Abfrage" />
+
+                <ParameterSeparator Id="%AID%_PS-nnn" Text="Anlage" UIHint="Headline" />
+                <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00010_R-%TT%0001001" HelpContext="VAI-Objekte" />
+                <choose ParamRefId="%AID%_UP-%TT%00010_R-%TT%0001001">
                   <when test="=1">
-                    <ParameterSeparator Id="%AID%_PS-nnn" Text="Anbindung über die myVAILLANT-Cloud (sensoCOMFORT VRC720 mit Internet-Gateway VR921). Nur auf ESP32-Geräten verfügbar. Die Zugangsdaten sind die der myVAILLANT-App." UIHint="Information" />
-                    <ParameterSeparator Id="%AID%_PS-nnn" Text="Zugangsdaten" UIHint="Headline" />
-                    <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00007_R-%TT%0000701" HelpContext="VAI-Zugangsdaten" />
-                    <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00008_R-%TT%0000801" HelpContext="VAI-Zugangsdaten" />
-                    <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00002_R-%TT%0000201" HelpContext="VAI-Zugangsdaten" />
-                    <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00003_R-%TT%0000301" HelpContext="VAI-Zugangsdaten" />
-
-                    <ParameterSeparator Id="%AID%_PS-nnn" Text="Abfrage" UIHint="Headline" />
-                    <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00005_R-%TT%0000501" HelpContext="VAI-Abfrage" />
-                    <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00004_R-%TT%0000401" HelpContext="VAI-Abfrage" />
-                    <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00006_R-%TT%0000601" HelpContext="VAI-Abfrage" />
-
                     <ComObjectRefRef RefId="%AID%_O-%TT%00002_R-%TT%0000201" />
+                  </when>
+                </choose>
+                <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00011_R-%TT%0001101" HelpContext="VAI-Objekte" />
+                <choose ParamRefId="%AID%_UP-%TT%00011_R-%TT%0001101">
+                  <when test="=1">
                     <ComObjectRefRef RefId="%AID%_O-%TT%00003_R-%TT%0000301" />
+                  </when>
+                </choose>
+                <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00012_R-%TT%0001201" HelpContext="VAI-Objekte" />
+                <choose ParamRefId="%AID%_UP-%TT%00012_R-%TT%0001201">
+                  <when test="=1">
                     <ComObjectRefRef RefId="%AID%_O-%TT%00004_R-%TT%0000401" />
+                  </when>
+                </choose>
+                <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00013_R-%TT%0001301" HelpContext="VAI-Objekte" />
+                <choose ParamRefId="%AID%_UP-%TT%00013_R-%TT%0001301">
+                  <when test="=1">
                     <ComObjectRefRef RefId="%AID%_O-%TT%00005_R-%TT%0000501" />
+                  </when>
+                </choose>
+                <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00014_R-%TT%0001401" HelpContext="VAI-Objekte" />
+                <choose ParamRefId="%AID%_UP-%TT%00014_R-%TT%0001401">
+                  <when test="=1">
                     <ComObjectRefRef RefId="%AID%_O-%TT%00006_R-%TT%0000601" />
+                  </when>
+                </choose>
+                <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00015_R-%TT%0001501" HelpContext="VAI-Objekte" />
+                <choose ParamRefId="%AID%_UP-%TT%00015_R-%TT%0001501">
+                  <when test="=1">
                     <ComObjectRefRef RefId="%AID%_O-%TT%00007_R-%TT%0000701" />
                     <ComObjectRefRef RefId="%AID%_O-%TT%00008_R-%TT%0000801" />
                     <ComObjectRefRef RefId="%AID%_O-%TT%00009_R-%TT%0000901" />
+                  </when>
+                </choose>
+                <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00016_R-%TT%0001601" HelpContext="VAI-Objekte" />
+                <choose ParamRefId="%AID%_UP-%TT%00016_R-%TT%0001601">
+                  <when test="=1">
                     <ComObjectRefRef RefId="%AID%_O-%TT%00010_R-%TT%0001001" />
                     <ComObjectRefRef RefId="%AID%_O-%TT%00011_R-%TT%0001101" />
+                  </when>
+                </choose>
+                <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00017_R-%TT%0001701" HelpContext="VAI-Objekte" />
+                <choose ParamRefId="%AID%_UP-%TT%00017_R-%TT%0001701">
+                  <when test="=1">
                     <ComObjectRefRef RefId="%AID%_O-%TT%00012_R-%TT%0001201" />
+                  </when>
+                </choose>
 
+                <ParameterSeparator Id="%AID%_PS-nnn" Text="Diagnose" UIHint="Headline" />
+                <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00018_R-%TT%0001801" HelpContext="VAI-Objekte" />
+                <choose ParamRefId="%AID%_UP-%TT%00018_R-%TT%0001801">
+                  <when test="=1">
                     <ComObjectRefRef RefId="%AID%_O-%TT%00000_R-%TT%0000001" />
+                  </when>
+                </choose>
+                <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00019_R-%TT%0001901" HelpContext="VAI-Objekte" />
+                <choose ParamRefId="%AID%_UP-%TT%00019_R-%TT%0001901">
+                  <when test="=1">
                     <ComObjectRefRef RefId="%AID%_O-%TT%00001_R-%TT%0000101" />
                   </when>
                 </choose>
               </ParameterBlock>
 
-              <choose ParamRefId="%AID%_UP-%TT%00001_R-%TT%0000101">
-                <when test="=1">
-                  <!-- Kanalauswahl: je Kanal eine einzeilige Tabelle (OpenKNX-Standard, Typ-Variante) -->
-                  <ParameterBlock Id="%AID%_PB-nnn" Name="VAIChannelSelect" Text="Kanalauswahl" Icon="format-list-bulleted-type" HelpContext="BASE-ChannelSelect">
-                    <ParameterBlock Id="%AID%_PB-nnn" Inline="true" Layout="Grid">
-                      <Rows>
-                        <Row Id="%AID%_PB-nnn_R-1" />
-                      </Rows>
-                      <Columns>
-                        <Column Id="%AID%_PB-nnn_C-1" Width="20%" />
-                        <Column Id="%AID%_PB-nnn_C-2" Width="30%" />
-                        <Column Id="%AID%_PB-nnn_C-3" Width="50%" />
-                      </Columns>
-                      <ParameterSeparator Id="%AID%_PS-nnn" Cell="1,1" UIHint="Headline" Text="Kanal" />
-                      <ParameterSeparator Id="%AID%_PS-nnn" Cell="1,2" UIHint="Headline" Text="Kanaltyp" />
-                      <ParameterSeparator Id="%AID%_PS-nnn" Cell="1,3" UIHint="Headline" Text="Beschreibung" />
-                    </ParameterBlock>
-                    <op:include href="Vaillant.templ.xml" xpath="//Dynamic/ChannelIndependentBlock/ParameterBlock[@Name='Settings']/*" type="template" prefix="VAI" IsInner="true" />
-                  </ParameterBlock>
+              <!-- Kanalauswahl: je Kanal eine einzeilige Tabelle (OpenKNX-Standard, Typ-Variante) -->
+              <ParameterBlock Id="%AID%_PB-nnn" Name="VAIChannelSelect" Text="Kanalauswahl" Icon="format-list-bulleted-type" HelpContext="BASE-ChannelSelect">
+                <ParameterBlock Id="%AID%_PB-nnn" Inline="true" Layout="Grid">
+                  <Rows>
+                    <Row Id="%AID%_PB-nnn_R-1" />
+                  </Rows>
+                  <Columns>
+                    <Column Id="%AID%_PB-nnn_C-1" Width="20%" />
+                    <Column Id="%AID%_PB-nnn_C-2" Width="30%" />
+                    <Column Id="%AID%_PB-nnn_C-3" Width="50%" />
+                  </Columns>
+                  <ParameterSeparator Id="%AID%_PS-nnn" Cell="1,1" UIHint="Headline" Text="Kanal" />
+                  <ParameterSeparator Id="%AID%_PS-nnn" Cell="1,2" UIHint="Headline" Text="Kanaltyp" />
+                  <ParameterSeparator Id="%AID%_PS-nnn" Cell="1,3" UIHint="Headline" Text="Beschreibung" />
+                </ParameterBlock>
+                <op:include href="Vaillant.templ.xml" xpath="//Dynamic/ChannelIndependentBlock/ParameterBlock[@Name='Settings']/*" type="template" prefix="VAI" IsInner="true" />
+              </ParameterBlock>
 
-                  <!-- Kanal-Tabs (nur aktivierte Kanäle) -->
-                  <op:include href="Vaillant.templ.xml" xpath="//Dynamic/ChannelIndependentBlock/ParameterBlock[@Name='Channel']/*" type="template" prefix="VAI" IsInner="true" />
-                </when>
-              </choose>
+              <!-- Kanal-Tabs (nur aktivierte Kanäle) -->
+              <op:include href="Vaillant.templ.xml" xpath="//Dynamic/ChannelIndependentBlock/ParameterBlock[@Name='Channel']/*" type="template" prefix="VAI" IsInner="true" />
             </Channel>
           </Dynamic>
         </ApplicationProgram>

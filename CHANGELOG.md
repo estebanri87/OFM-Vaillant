@@ -16,7 +16,11 @@ myVAILLANT-Cloud, nach dem Vorbild von myPyllant / mypyllant-component.
 - Warmwasser: Temperatur, Sollwert, Betriebsart, Boost
 - Energiedaten des Tages: Strom, Umweltenergie, Wärme, Arbeitszahl
 - Konsole: `vai`, `vai poll`, `vai login`, `vai raw on|off`
+- Jedes Objekt der Seite „Allgemein“ einzeln zuschaltbar; abgewählte Objekte für Online-Status,
+  Störungen und Leistung sparen auch die zugehörige Cloud-Abfrage
 
 ### Changed
+- Kein eigener Parameter „Modul aktiv“ mehr: Das Modul ist immer aktiv und wird bei Bedarf in der
+  Modulliste von OpenKNX abgeschaltet; die Firmware wertet dieses Häkchen aus.
 - KO-Namen und Objektfunktionen einheitlich nach dem Schema „Vaillant [Kanal]: Eingang/Ausgang, Wert“.
 

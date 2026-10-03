@@ -629,14 +629,18 @@ namespace Vaillant
     {
         const std::string sys = "/systems/" + _systemId;
 
-        HttpResponse conn = api("GET", sys + "/meta-info/connection-status");
-        if (conn.ok())
+        if (_settings.wantOnline)
         {
-            JsonDocument d;
-            if (!deserializeJson(d, conn.body)) _work.online = d["connected"] | false;
+            HttpResponse conn = api("GET", sys + "/meta-info/connection-status");
+            if (conn.ok())
+            {
+                JsonDocument d;
+                if (!deserializeJson(d, conn.body)) _work.online = d["connected"] | false;
+            }
         }
 
-        HttpResponse dtc = api("GET", sys + "/diagnostic-trouble-codes", std::string(), 32 * 1024);
+        HttpResponse dtc;
+        if (_settings.wantFaults) dtc = api("GET", sys + "/diagnostic-trouble-codes", std::string(), 32 * 1024);
         if (dtc.ok())
         {
             JsonDocument d;
@@ -660,7 +664,8 @@ namespace Vaillant
         }
 
         // Live power. Not every system has it, then the object stays silent.
-        HttpResponse mpc = api("GET", "/hem/" + _systemId + "/mpc");
+        HttpResponse mpc;
+        if (_settings.wantPower) mpc = api("GET", "/hem/" + _systemId + "/mpc");
         _work.power = NAN;
         if (mpc.ok())
         {
