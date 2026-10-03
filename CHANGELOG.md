@@ -16,3 +16,7 @@ myVAILLANT-Cloud, nach dem Vorbild von myPyllant / mypyllant-component.
 - Warmwasser: Temperatur, Sollwert, Betriebsart, Boost
 - Energiedaten des Tages: Strom, Umweltenergie, Wärme, Arbeitszahl
 - Konsole: `vai`, `vai poll`, `vai login`, `vai raw on|off`
+
+### Changed
+- KO-Namen und Objektfunktionen einheitlich nach dem Schema „Vaillant [Kanal]: Eingang/Ausgang, Wert“.
+
